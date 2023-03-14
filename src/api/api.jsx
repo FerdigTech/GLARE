@@ -24,12 +24,9 @@ let api = {
     return api.provider().account.get();
   },
 
-  // updatePassword: (password) => {
-  //   return api.provider().account.updatePassword(password);
-  // },
+  //apis starting here for password recovery
 
   createRecovery: (email, url) => {
-    //let url1 = Server.endpoint;
     return api.provider().account.createRecovery(email, url + '/resetPassword');
   },
   
@@ -37,6 +34,16 @@ let api = {
     return api.provider().account.updateRecovery(userId, secret, password, paswordAgain);
   },
   
+  createVerification: (url) => {
+    return api.provider().account.createVerification(url);
+  },
+
+  updateVerification: (userId, secret) => {
+    return api.provider().account.updateVerification(userId, secret);
+  },
+
+  //apis ending here for password recovery
+
   createSession: (email, password) => {
     console.log(email, password);
     return api.provider().account.createSession(email, password);

@@ -14,6 +14,10 @@ const SignUp = ({ setRegister, dispatch }) => {
       const user = await api.createAccount(email, password, name);
       await api.createSession(email, password);
       dispatch({ type: FetchState.FETCH_SUCCESS, payload: user });
+
+      await api.createVerification("http://glare.cs.kent.edu:8080/v1/account/verification");
+      console.log("Verification email has been sent!")
+
     } catch (e) {
       dispatch({ type: FetchState.FETCH_FAILURE });
     }

@@ -31,14 +31,14 @@ let url= 'http://glare.cs.kent.edu:8080/v1'
 const forgotPasswordLink = async () => {
     console.log("insideee function----")
 
-// let promise = await api.createRecovery(email, url);
+let promise = await api.createRecovery(email, url);
 
-// promise.then(function (response) {
-//     console.log(response); // Success
+promise.then(function (response) {
+    console.log(response); // Success
     navigate('/reset-password');
-// }, function (error) {
-//     console.log(error); // Failure
-// });
+}, function (error) {
+    console.log(error); // Failure
+});
 
  };
 //   const forgotPasswordLink = async () => {

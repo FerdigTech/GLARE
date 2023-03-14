@@ -42,6 +42,7 @@
     "reactstrap": "^9.1.5",
     "rehowl": "^0.6.0",
     "screenfull": "^5.2.0",
+    "serve": "^14.2.0",
     "short-unique-id": "^4.4.4",
     "three": "^0.128.0",
     "tw-elements": "^1.0.0-alpha12",

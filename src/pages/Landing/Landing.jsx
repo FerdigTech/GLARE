@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import api from "../../api/api";
 
 const Landing = () => {
   const history = useNavigate();
@@ -6,6 +7,27 @@ const Landing = () => {
   const handleClick = () => {
     history("/new-projects");
   };
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const userId = urlParams.get('userId');
+  const secret = urlParams.get('secret');
+
+  const verificationEmail = async () => {
+    console.log("insideee function----")
+
+    let promise = await api.updateVerification(userId, secret);
+
+    promise.then(function (response) {
+      console.log("User is verified---------------",response); // Success
+      //   navigate('/reset-password');
+    }, function (error) {
+      console.log("Verification failed--------------",error); // Failure
+    });
+
+  };
+
+  verificationEmail();
+
 
   return (
     <>
